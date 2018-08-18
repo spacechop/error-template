@@ -1,0 +1,17 @@
+# example configuration to reproduce the error
+paths:
+  - /:preset/:image(.*)
+sources:
+  - http:
+    root: http://commons.wikipedia.org/:image
+presets:
+  # fill 200x200 with type jpg and compress with quality 0.9
+  t_200:
+    steps:
+      - $fill:
+        width: 200
+        height: 200
+      - $format:
+        type: jpg
+      - $compress:
+        quality: 0.9
